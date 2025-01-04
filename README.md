@@ -155,11 +155,4 @@ Contributions are welcome! Please read our [Contributing Guidelines](docs/CONTRI
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Related Projects
 
-- [LLM Code Assistant](https://github.com/example/llm-code-assistant)
-- [DevOps Automation Tools](https://github.com/example/devops-automation)
-
-## 📞 Support
-
-For support and questions, please [open an issue](https://github.com/yourusername/llm-dev-tools/issues) or contact the maintainers.
