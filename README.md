@@ -1,8 +1,9 @@
 # LLMDevTools 🤖
 
-> ⚠️ **Work in Progress**: This repository is actively being developed. Features and documentation are being continuously added and improved.
-
+> ⚠️ **Work in Progress**: This repository is actively being developed. Features and documentation are being continuously added and improved. for now i just added bash script that combines js files inside a folder into a single file to pass the number of file challenge .
+ 
 A comprehensive toolkit for LLM-powered development workflows and code generation. This repository provides a collection of tools and utilities to automate coding tasks, manage file operations, and integrate LLM capabilities into your development process.
+
 
 ## 🚧 Development Status
 
