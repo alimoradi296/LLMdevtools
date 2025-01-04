@@ -9,7 +9,7 @@ A comprehensive toolkit for LLM-powered development workflows and code generatio
 
 This project is in active development. Here's what's currently being worked on:
 
-- [] Basic repository structure
+- [ ] Basic repository structure
 - [x] JavaScript file combination utilities
 - [ ] anycode file combination utilities
 - [ ] Python code generation tools
