@@ -4,7 +4,33 @@
  
 A comprehensive toolkit for LLM-powered development workflows and code generation. This repository provides a collection of tools and utilities to automate coding tasks, manage file operations, and integrate LLM capabilities into your development process.
 
+search_content.sh:
+Takes 3 command-line arguments:
 
+Search string to find
+Directory to search in
+Output file name
+
+
+Creates a well-structured output file that includes:
+
+Search parameters and timestamp
+For each file with matches:
+
+File path
+Number of matches in the file
+Each matching line with its line number
+
+
+Summary with total files and matches found
+
+
+Additional features:
+
+Skips binary files and hidden directories (like .git)
+Handles files with spaces in their names
+Includes error handling for invalid directories
+Shows progress with a final summary.
 ## 🚧 Development Status
 
 This project is in active development. Here's what's currently being worked on:
@@ -17,6 +43,7 @@ This project is in active development. Here's what's currently being worked on:
 - [ ] Documentation and examples
 - [ ] Testing framework
 - [ ] CI/CD pipeline
+- [ ] 
 
 ## 🌟 Features
 
