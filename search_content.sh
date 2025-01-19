@@ -31,7 +31,7 @@ echo "Search Directory: $SEARCH_DIR" >> "$OUTPUT_FILE"
 echo "Generated on: $(date)" >> "$OUTPUT_FILE"
 print_separator
 
-# Counter for matches
+# Initialize counters
 total_files=0
 total_matches=0
 
@@ -42,18 +42,19 @@ while IFS= read -r -d '' file; do
         continue
     fi
 
-    # Search for matches in the current file
-    matches=$(grep -n "$SEARCH_STRING" "$file" 2>/dev/null)
+    # Count total occurrences in this file (case-insensitive)
+    file_count=$(grep -i "$SEARCH_STRING" "$file" 2>/dev/null | wc -l)
     
-    if [ ! -z "$matches" ]; then
-        # Count matches in this file
-        match_count=$(echo "$matches" | wc -l)
-        total_matches=$((total_matches + match_count))
+    # Search for matches in the current file (case-insensitive with line numbers)
+    matches=$(grep -in "$SEARCH_STRING" "$file" 2>/dev/null)
+    
+    if [ $file_count -gt 0 ]; then
+        total_matches=$((total_matches + file_count))
         total_files=$((total_files + 1))
         
         # Print file header
         echo "File: $file" >> "$OUTPUT_FILE"
-        echo "Number of matches: $match_count" >> "$OUTPUT_FILE"
+        echo "Occurrences in this file: $file_count" >> "$OUTPUT_FILE"
         echo "Matches:" >> "$OUTPUT_FILE"
         
         # Print each matching line with line number
@@ -69,7 +70,12 @@ done < <(find "$SEARCH_DIR" -type f -print0)
 
 # Print summary
 echo "Search Summary:" >> "$OUTPUT_FILE"
-echo "Total files with matches: $total_files" >> "$OUTPUT_FILE"
-echo "Total matches found: $total_matches" >> "$OUTPUT_FILE"
+echo "Total files containing matches: $total_files" >> "$OUTPUT_FILE"
+echo "Total occurrences found: $total_matches" >> "$OUTPUT_FILE"
+print_separator
+echo "Average occurrences per file: $(awk "BEGIN {printf \"%.2f\", $total_matches/$total_files}")" >> "$OUTPUT_FILE"
 
 echo "Search completed. Results saved to: $OUTPUT_FILE"
+echo "Summary:"
+echo "- Files with matches: $total_files"
+echo "- Total occurrences: $total_matches"
